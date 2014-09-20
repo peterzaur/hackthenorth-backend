@@ -61,6 +61,7 @@
 - (IBAction)denominationSliderChanged:(id)sender {
     
     double roundedValue = round(self.DenominationSlider.value * 4) / 4.0;
+    self.DenominationSlider.value = roundedValue;
     
     self.DenominationAmount.text = [NSString stringWithFormat:@"$%.2f", roundedValue];
 }
