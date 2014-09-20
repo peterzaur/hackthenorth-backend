@@ -17,17 +17,40 @@
 @implementation SNViewController
 
 static UIColor *greenColour;
+static CGPoint initialPos = {160, 346};
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender{
     CGPoint currentPos = _rectangle.center;
     [UIView animateWithDuration:0.5f animations:^{
         _rectangle.center = CGPointMake(currentPos.x, currentPos.y - 500);
+    } completion:^(BOOL finished) {
+        _rectangle.center = initialPos;
     }];
+
+    
+    double increment = self.denomination_value;
+    NSLog([NSString stringWithFormat:@"Swipe Value: $%.2f", increment]);
+    
+    [self.swipe_array addObject:[NSNumber numberWithDouble:increment]];
+    [self updateSwipeTotal];
+    
+    double current_swipes = self.swipe_total;
+    
+    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", current_swipes];
+    
+    self.swipe_total = current_swipes;
+    [self flashDenominationAmount:(increment)];
+    
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // Transparent navigation bar
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar setTranslucent:YES];
     
     self.DenominationSlider.minimumValue = 0.25;
     self.DenominationSlider.maximumValue = 5.00;
@@ -63,25 +86,6 @@ static UIColor *greenColour;
     } completion:NULL];
 }
 
-- (IBAction)sendSwipeAction:(id)sender {
-    NSLog(@"Swipe Button Clicked");
-    [self swipeOccurred];
-}
-
-- (void)swipeOccurred {
-    double increment = self.denomination_value;
-    NSLog([NSString stringWithFormat:@"Swipe Value: $%.2f", increment]);
-    
-    [self.swipe_array addObject:[NSNumber numberWithDouble:increment]];
-    [self updateSwipeTotal];
-    
-    double current_swipes = self.swipe_total;
-    
-    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", current_swipes];
-    
-    self.swipe_total = current_swipes;
-    [self flashDenominationAmount:(increment)];
-}
 
 - (IBAction)sendButton:(id)sender {
     NSLog(@"Send Button Clicked");
