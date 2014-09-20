@@ -17,12 +17,12 @@
 
 @implementation SNViewController
 
-static UIColor *greenColour;
-static CGPoint initialPos = {160, 346};
+static UIColor *greenColour, *blueColor;
+static CGPoint initialPos;
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender{
     CGPoint currentPos = _rectangle.center;
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         _rectangle.center = CGPointMake(currentPos.x, currentPos.y - 500);
     } completion:^(BOOL finished) {
         _rectangle.center = initialPos;
@@ -65,6 +65,8 @@ static CGPoint initialPos = {160, 346};
     self.swipe_array = [[NSMutableArray alloc] init];
     
     greenColour = [UIColor colorWithRed:(123 / 255.0) green:(191 / 255.0) blue:(106 / 255.0) alpha: 1];
+    blueColor = self.view.backgroundColor; // original color
+    initialPos = _rectangle.center;
 }
 
 - (void)didReceiveMemoryWarning{
@@ -78,13 +80,19 @@ static CGPoint initialPos = {160, 346};
 }
 
 - (void)flashDenominationAmount:(double)denomination {
+    UIColor *originalColor = self.view.backgroundColor;
     self.denominationFlashLabel.text = [NSString stringWithFormat:@"$%.2f", denomination];
+    self.denominationFlashLabel.alpha = 1;
     [UIView animateWithDuration:0.3 animations:^{
         self.view.backgroundColor = greenColour;
-    } completion:NULL];
-    [UIView animateWithDuration:0.3 animations:^{
-        self.view.backgroundColor = [UIColor whiteColor];
-    } completion:NULL];
+    } completion:^(BOOL finished) {
+        self.denominationFlashLabel.alpha = 0;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.view.backgroundColor = originalColor;
+            
+        }];
+    }];
+    
 }
 
 
