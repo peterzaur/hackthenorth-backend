@@ -9,11 +9,12 @@ Using virtualenv to run flask api server
 3. when you're done, run `deactive`
 
 # Trying it out
+run `python run.py`
 In a python console...
 
     >>> import json  # import simplejson as json, if on Python 2.5
     >>> import requests  # python-requests is installable from PyPI...
     >>> newuser = {'id': 1, 'name': u'each3ric', 'message': u'hello, world'}
-    >>> r = requests.post('/api/person', data=json.dumps(newperson), headers={'content-type': 'application/json'})
+    >>> r = requests.post('http://0.0.0.0:12345/api/user', data=json.dumps(newuser), headers={'content-type': 'application/json'})
 
 Then go to http://0.0.0.0:12345/api/user/1 in a browser to check it out

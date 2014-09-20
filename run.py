@@ -8,9 +8,9 @@ db = flask.ext.sqlalchemy.SQLAlchemy(app)
 
 # Create Flask-SQLAlchemy models
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String)
-    message = db.Column(db.String)
+   id = db.Column(db.Integer, primary_key=True)
+   username = db.Column(db.String)
+   message = db.Column(db.String)
 
 # Create db tables
 db.create_all()
