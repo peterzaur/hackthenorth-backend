@@ -39,10 +39,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1il-FN-8bt">
-                                <rect key="frame" x="20" y="494" width="278" height="74"/>
+                                <rect key="frame" x="20" y="469" width="278" height="66"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="money.png" translatesAutoresizingMaskIntoConstraints="NO" id="i6m-im-kfy">
-                                        <rect key="frame" x="75" y="15" width="129" height="66"/>
+                                        <rect key="frame" x="75" y="0.0" width="129" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
