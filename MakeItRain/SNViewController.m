@@ -16,7 +16,7 @@
 
 @implementation SNViewController
 
-static UIColor *greenColor, *blueColor;
+static UIColor *greenColor, *blueColor, *yellowColor;
 static CGPoint initialPos;
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender{
@@ -63,10 +63,11 @@ static CGPoint initialPos;
     self.swipe_total = 0;
     self.swipe_array = [[NSMutableArray alloc] init];
     
-    greenColor = [UIColor colorWithRed:(123 / 255.0) green:(191 / 255.0) blue:(106 / 255.0) alpha: 1];
+    greenColor = [UIColor colorWithRed:(46 / 255.0) green:(204 / 255.0) blue:(113 / 255.0) alpha: 1];
     blueColor = self.view.backgroundColor; // original color
+    yellowColor = [UIColor colorWithRed:(242 / 255.0) green:(196 / 255.0) blue:(15 / 255.0) alpha: 1];
     
-    self.view.backgroundColor = greenColor;
+    self.view.backgroundColor = blueColor;
     initialPos = _rectangle.center;
 }
 
@@ -77,33 +78,24 @@ static CGPoint initialPos;
 
 - (void)flashDenominationAmount:(double)denomination {
     UIColor *originalColor = self.view.backgroundColor;
-    //self.denominationFlashLabel.text = [NSString stringWithFormat:@"$%.2f", denomination];
-//    self.denominationFlashLabel.alpha = 1;
-//    [UIView animateWithDuration:0.3 animations:^{
-//        self.view.backgroundColor = blueColor;
-//    } completion:^(BOOL finished) {
-//        //self.denominationFlashLabel.alpha = 0;
-//        [UIView animateWithDuration:0.3 animations:^{
-//            self.view.backgroundColor = originalColor;
-//            
-//        }];
     _incrementLabel.text = [NSString stringWithFormat:@"+$%.2f", denomination];
     
+    [UIView animateWithDuration:0.2 animations:^{
+        self.view.backgroundColor = greenColor;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.view.backgroundColor = blueColor;
+        } completion:NULL];
+    }];
     [_incrementLabel setAlpha:0.0f];
-        [UIView animateWithDuration:0.4f animations:^{
+    [UIView animateWithDuration:0.4f animations:^{
         [_incrementLabel setAlpha:1.0f];
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.6f animations:^{
-        [_incrementLabel setAlpha:0.0f];
-    } completion:nil];
+        [UIView animateWithDuration:0.4f animations:^{
+            [_incrementLabel setAlpha:0.0f];
+        } completion:nil];
     }];
     
-    [UIView animateWithDuration:0.4 animations:^{
-        self.view.backgroundColor = greenColor;
-    } completion:NULL];
-    [UIView animateWithDuration:0.4 animations:^{
-        self.view.backgroundColor = blueColor;
-    } completion:NULL];
 }
 
 
