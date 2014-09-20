@@ -15,6 +15,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
 @property (weak, nonatomic) IBOutlet UIButton *swipeButton;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UIButton *undoButton;
+@property NSInteger swipe_count;
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender;
 
