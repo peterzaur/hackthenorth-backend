@@ -10,12 +10,20 @@
 
 @interface SNViewController ()
 
+@property IBOutlet UIView *rectangle;
+
 @end
 
 @implementation SNViewController
 
-- (void)viewDidLoad
-{
+- (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender{
+    CGPoint currentPos = _rectangle.center;
+    [UIView animateWithDuration:0.5f animations:^{
+        _rectangle.center = CGPointMake(currentPos.x, currentPos.y - 500);
+    }];
+}
+
+- (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
@@ -24,8 +32,7 @@
     [self.swipeButton setTitle:@"Swipe" forState:UIControlStateNormal];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -43,5 +50,4 @@
     
     // Do more stuff
 }
-
 @end

@@ -19,7 +19,15 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXD-My-jGJ">
                                 <rect key="frame" x="52" y="63" width="101" height="87"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1il-FN-8bt">
+                                <rect key="frame" x="92" y="453" width="136" height="115"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yAG-rQ-hFX" appends="YES" id="OyG-9b-6U1"/>
+                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntN-wV-lnz">
                                 <rect key="frame" x="16" y="539" width="137" height="21"/>
@@ -41,9 +49,15 @@
                     <connections>
                         <outlet property="swipeButton" destination="xc8-1c-4x4" id="COt-mv-2X4"/>
                         <outlet property="totalLabel" destination="ntN-wV-lnz" id="a1v-vg-NzP"/>
+                        <outlet property="rectangle" destination="1il-FN-8bt" id="e1R-nH-kTf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="yAG-rQ-hFX">
+                    <connections>
+                        <action selector="swipeDetected:" destination="vXZ-lx-hvc" id="0af-eR-AK6"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
         </scene>
     </scenes>
