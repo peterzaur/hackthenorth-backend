@@ -12,9 +12,12 @@
 
 @property IBOutlet UIView *rectangle;
 
+
 @end
 
 @implementation SNViewController
+
+static UIColor *greenColour;
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender{
     CGPoint currentPos = _rectangle.center;
@@ -28,11 +31,12 @@
     self.DenominationSlider.minimumValue = 0.25;
     self.DenominationSlider.maximumValue = 5.00;
     self.DenominationSlider.value = 1.00;
-	// Do any additional setup after loading the view, typically from a nib.
-    
     self.totalLabel.text = @"0";
     
     [self.swipeButton setTitle:@"Swipe" forState:UIControlStateNormal];
+    
+    greenColour = [UIColor colorWithRed:(123 / 255.0) green:(191 / 255.0) blue:(106 / 255.0) alpha: 1];
+
 }
 
 - (void)didReceiveMemoryWarning{
@@ -44,6 +48,18 @@
     UITouch *touch =[touches anyObject];
     CGPoint currentPoint =[touch locationInView:self.view];//point of touch
 }
+
+
+- (void)flashDenominationAmount:(double)denomination {
+    self.denominationFlashLabel.text = [NSString stringWithFormat:@"$%.2f", denomination];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.backgroundColor = greenColour;
+    } completion:NULL];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.backgroundColor = [UIColor whiteColor];
+    } completion:NULL];
+}
+
 - (IBAction)sendSwipeAction:(id)sender {
     
     self.swipeOccured;
@@ -51,10 +67,11 @@
 - (void)swipeOccured {
     
     int increment = 1;
+    double denom = self.DenominationSlider.value;
     int current_swipes = self.totalLabel.text.intValue;
     NSLog(@"%d", current_swipes);
     self.totalLabel.text = [NSString stringWithFormat:@"%d", current_swipes + increment];
-    
+    [self flashDenominationAmount:(denom)];
     // Do more stuff
 }
 
