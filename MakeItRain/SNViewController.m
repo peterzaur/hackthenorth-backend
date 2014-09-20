@@ -48,6 +48,11 @@ static CGPoint initialPos = {160, 346};
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // Transparent navigation bar
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    
     self.DenominationSlider.minimumValue = 0.25;
     self.DenominationSlider.maximumValue = 5.00;
     self.DenominationSlider.value = 1.00;
