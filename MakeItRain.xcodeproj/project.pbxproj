@@ -16,7 +16,6 @@
 		5DBE0C0419CD5D4100429109 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DBE0C0219CD5D4100429109 /* Main.storyboard */; };
 		5DBE0C0719CD5D4100429109 /* SNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBE0C0619CD5D4100429109 /* SNViewController.m */; };
 		5DBE0C0919CD5D4100429109 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DBE0C0819CD5D4100429109 /* Images.xcassets */; };
-		5DBE0C1019CD5D4100429109 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBE0C0F19CD5D4100429109 /* XCTest.framework */; };
 		5DBE0C1119CD5D4100429109 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBE0BF019CD5D4000429109 /* Foundation.framework */; };
 		5DBE0C1219CD5D4100429109 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBE0BF419CD5D4100429109 /* UIKit.framework */; };
 		5DBE0C1A19CD5D4100429109 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DBE0C1819CD5D4100429109 /* InfoPlist.strings */; };
@@ -50,7 +49,6 @@
 		5DBE0C0619CD5D4100429109 /* SNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNViewController.m; sourceTree = "<group>"; };
 		5DBE0C0819CD5D4100429109 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DBE0C0E19CD5D4100429109 /* MakeItRainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakeItRainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DBE0C0F19CD5D4100429109 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		5DBE0C1719CD5D4100429109 /* MakeItRainTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MakeItRainTests-Info.plist"; sourceTree = "<group>"; };
 		5DBE0C1919CD5D4100429109 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5DBE0C1B19CD5D4100429109 /* MakeItRainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakeItRainTests.m; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DBE0C1019CD5D4100429109 /* XCTest.framework in Frameworks */,
 				5DBE0C1219CD5D4100429109 /* UIKit.framework in Frameworks */,
 				5DBE0C1119CD5D4100429109 /* Foundation.framework in Frameworks */,
 			);
@@ -108,7 +105,6 @@
 				5DBE0BF019CD5D4000429109 /* Foundation.framework */,
 				5DBE0BF219CD5D4100429109 /* CoreGraphics.framework */,
 				5DBE0BF419CD5D4100429109 /* UIKit.framework */,
-				5DBE0C0F19CD5D4100429109 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

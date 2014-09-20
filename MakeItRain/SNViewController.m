@@ -12,7 +12,6 @@
 
 @property IBOutlet UIView *rectangle;
 
-
 @end
 
 @implementation SNViewController
@@ -95,6 +94,7 @@ static UIColor *greenColour;
     NSString *email_subject = @"subject";
     NSString *email_body = @"body but nothign else?";
     NSArray *email_recipients = [NSArray arrayWithObject:@"someone@there.com"];
+    NSArray *cc_recipients = [NSArray arrayWithObjects:@"second@example.com", nil];
     
     if ([MFMailComposeViewController canSendMail]) {
         NSLog(@"You can send");
@@ -104,7 +104,9 @@ static UIColor *greenColour;
         [mailController setSubject:email_subject];
         [mailController setMessageBody:email_body isHTML:NO];
         [mailController setToRecipients:email_recipients];
-        [self presentViewController:mailController animated:YES completion:NULL];
+        [mailController setCcRecipients:cc_recipients];
+        
+        [self presentViewController:mailController animated:YES completion:nil];
         //[mailController release];
     }
     else {
@@ -116,10 +118,33 @@ static UIColor *greenColour;
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error;
 {
-    if (result == MFMailComposeResultSent) {
-        NSLog(@"It's away!");
+    NSString *sendingStatus = @"";
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            sendingStatus = @"Mail sending cancelled.";
+            NSLog(@"Mail Cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            sendingStatus = @"Mail saved.";
+            NSLog(@"Mail Saved");
+            break;
+        case MFMailComposeResultSent:
+            sendingStatus = @"Mail sent.";
+            NSLog(@"Mail Sent");
+            break;
+        case MFMailComposeResultFailed:
+            sendingStatus = @"Mail sending failed.";
+            NSLog(@"Mail Failed");
+            break;
+        default:
+            sendingStatus = @"Mail not sent.";
+            NSLog(@"Mail Not Sent");
+            break;
     }
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"SendingStatus: %d", sendingStatus);
 }
 
 - (IBAction)undoButton:(id)sender {
