@@ -31,4 +31,4 @@ def send():
    mail.send(msg)
 
 # Start flask
-app.run(host='0.0.0.0', port=12345)
+app.run()
