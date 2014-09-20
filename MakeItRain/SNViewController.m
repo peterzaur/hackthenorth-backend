@@ -18,13 +18,30 @@
 @implementation SNViewController
 
 static UIColor *greenColour;
+static CGPoint initialPos = {160, 346};
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender{
     CGPoint currentPos = _rectangle.center;
     [UIView animateWithDuration:0.5f animations:^{
         _rectangle.center = CGPointMake(currentPos.x, currentPos.y - 500);
+    } completion:^(BOOL finished) {
+        _rectangle.center = initialPos;
     }];
-    [self swipeOccurred];
+
+    
+    double increment = self.denomination_value;
+    NSLog([NSString stringWithFormat:@"Swipe Value: $%.2f", increment]);
+    
+    [self.swipe_array addObject:[NSNumber numberWithDouble:increment]];
+    [self updateSwipeTotal];
+    
+    double current_swipes = self.swipe_total;
+    
+    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", current_swipes];
+    
+    self.swipe_total = current_swipes;
+    [self flashDenominationAmount:(increment)];
+    
 }
 
 - (void)viewDidLoad{
@@ -65,20 +82,6 @@ static UIColor *greenColour;
     } completion:NULL];
 }
 
-- (void)swipeOccurred {
-    double increment = self.denomination_value;
-    NSLog([NSString stringWithFormat:@"Swipe Value: $%.2f", increment]);
-    
-    [self.swipe_array addObject:[NSNumber numberWithDouble:increment]];
-    [self updateSwipeTotal];
-    
-    double current_swipes = self.swipe_total;
-    
-    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", current_swipes];
-    
-    self.swipe_total = current_swipes;
-    [self flashDenominationAmount:(increment)];
-}
 
 - (IBAction)sendButton:(id)sender {
     NSLog(@"Send Button Clicked");
