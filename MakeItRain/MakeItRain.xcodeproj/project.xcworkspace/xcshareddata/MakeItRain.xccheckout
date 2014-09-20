@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B8058161-2E16-4B1B-A197-5411A3B175EC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MakeItRain</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0245F287-FC80-4887-AE4F-4D62306AD269</key>
+		<string>ssh://github.com/each3ric/hackthenorth.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MakeItRain/MakeItRain.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0245F287-FC80-4887-AE4F-4D62306AD269</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/each3ric/hackthenorth.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0245F287-FC80-4887-AE4F-4D62306AD269</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0245F287-FC80-4887-AE4F-4D62306AD269</string>
+			<key>IDESourceControlWCCName</key>
+			<string>hackthenorth</string>
+		</dict>
+	</array>
+</dict>
+</plist>
