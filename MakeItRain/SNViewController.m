@@ -25,6 +25,9 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.DenominationSlider.minimumValue = 0.25;
+    self.DenominationSlider.maximumValue = 5.00;
+    self.DenominationSlider.value = 1.00;
 	// Do any additional setup after loading the view, typically from a nib.
     
     self.totalLabel.text = @"0";
@@ -70,5 +73,13 @@
     NSLog(@"Undo Button Clicked");
 }
 
+
+- (IBAction)denominationSliderChanged:(id)sender {
+    
+    double roundedValue = round(self.DenominationSlider.value * 4) / 4.0;
+    self.DenominationSlider.value = roundedValue;
+    
+    self.DenominationAmount.text = [NSString stringWithFormat:@"$%.2f", roundedValue];
+}
 
 @end
