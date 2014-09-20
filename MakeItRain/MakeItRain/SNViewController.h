@@ -10,4 +10,6 @@
 
 @interface SNViewController : UIViewController
 
+IBOutlet UIView *rect;
+
 @end
