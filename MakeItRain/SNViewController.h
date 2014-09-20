@@ -21,10 +21,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *undoButton;
 @property double swipe_total;
 @property double denomination_value;
+@property NSMutableArray *swipe_array;
+
 
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender;
 
 - (void)swipeOccured;
+- (void)nslog_swipe_array;
+- (double)update_swipe_total;
 
 @end
