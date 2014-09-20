@@ -380,6 +380,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MakeItRain/MakeItRain-Prefix.pch";
 				INFOPLIST_FILE = "MakeItRain/MakeItRain-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -393,6 +394,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MakeItRain/MakeItRain-Prefix.pch";
 				INFOPLIST_FILE = "MakeItRain/MakeItRain-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -457,6 +459,7 @@
 				5DBE0C2119CD5D4100429109 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DBE0C2219CD5D4100429109 /* Build configuration list for PBXNativeTarget "MakeItRainTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +468,7 @@
 				5DBE0C2419CD5D4100429109 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
