@@ -10,25 +10,28 @@
 
 @interface SNViewController ()
 
+@property IBOutlet UIView *rectangle;
+
 @end
 
 @implementation SNViewController
 
-- (void)viewDidLoad
-{
+- (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender{
+    CGPoint currentPos = _rectangle.center;
+    [UIView animateWithDuration:0.5f animations:^{
+        _rectangle.center = CGPointMake(currentPos.x, currentPos.y - 500);
+    }];
+}
+
+- (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch *touch =[touches anyObject];
-    CGPoint currentPoint =[touch locationInView:self.view];//point of touch
-}
 
 @end

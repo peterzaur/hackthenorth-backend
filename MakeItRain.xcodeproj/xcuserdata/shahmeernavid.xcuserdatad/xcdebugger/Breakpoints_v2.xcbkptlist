@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MakeItRain/SNViewController.h"
-            timestampString = "432889393.409365"
+            timestampString = "432891469.495696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
             landmarkName = "@interface SNViewController"
             landmarkType = "2">
          </BreakpointContent>

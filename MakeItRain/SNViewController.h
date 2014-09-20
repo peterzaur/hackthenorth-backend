@@ -10,6 +10,6 @@
 
 @interface SNViewController : UIViewController
 
-IBOutlet UIView *rect;
+- (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender;
 
 @end
