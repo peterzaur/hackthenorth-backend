@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5DAD1B2019CE275300D65C27 /* money.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAD1B1F19CE275300D65C27 /* money.png */; };
+		5DAD1B2219CE292A00D65C27 /* money@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAD1B2119CE292A00D65C27 /* money@2x.png */; };
 		5DBE0BF119CD5D4000429109 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBE0BF019CD5D4000429109 /* Foundation.framework */; };
 		5DBE0BF319CD5D4100429109 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBE0BF219CD5D4100429109 /* CoreGraphics.framework */; };
 		5DBE0BF519CD5D4100429109 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBE0BF419CD5D4100429109 /* UIKit.framework */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		1E8AB4E30C714470A5741B01 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		5DAD1B1F19CE275300D65C27 /* money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = money.png; path = ../../money.png; sourceTree = "<group>"; };
+		5DAD1B2119CE292A00D65C27 /* money@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "money@2x.png"; path = "../../money@2x.png"; sourceTree = "<group>"; };
 		5DBE0BED19CD5D4000429109 /* MakeItRain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeItRain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DBE0BF019CD5D4000429109 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DBE0BF219CD5D4100429109 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +128,7 @@
 				5DBE0C0519CD5D4100429109 /* SNViewController.h */,
 				5DBE0C0619CD5D4100429109 /* SNViewController.m */,
 				5DBE0C0819CD5D4100429109 /* Images.xcassets */,
+				5DAD1B2119CE292A00D65C27 /* money@2x.png */,
 				5DAD1B1F19CE275300D65C27 /* money.png */,
 				5DBE0BF719CD5D4100429109 /* Supporting Files */,
 			);
@@ -240,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAD1B2219CE292A00D65C27 /* money@2x.png in Resources */,
 				5DAD1B2019CE275300D65C27 /* money.png in Resources */,
 				5DBE0C0919CD5D4100429109 /* Images.xcassets in Resources */,
 				5DBE0BFB19CD5D4100429109 /* InfoPlist.strings in Resources */,

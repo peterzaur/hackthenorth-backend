@@ -20,12 +20,12 @@ static UIColor *greenColor, *blueColor, *yellowColor;
 static CGPoint initialPos;
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender{
-    CGPoint currentPos = _rectangle.center;
-    [UIView animateWithDuration:0.3f animations:^{
-        _rectangle.center = CGPointMake(currentPos.x, currentPos.y - 500);
-    } completion:^(BOOL finished) {
-        _rectangle.center = initialPos;
-    }];
+//    CGPoint currentPos = _rectangle.center;
+//    [UIView animateWithDuration:0.3f animations:^{
+//        _rectangle.center = CGPointMake(currentPos.x, currentPos.y - 500);
+//    } completion:^(BOOL finished) {
+//        _rectangle.center = initialPos;
+//    }];
 
     
     double increment = self.denomination_value;
@@ -73,6 +73,21 @@ static CGPoint initialPos;
     
     
 
+}
+
+- (void) animate{
+    
+    // add items to the view
+    UIImageView *money1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"money"]],
+                *money2= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"money"]],
+                *money3= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"money"]];
+    
+    money1.center = CGPointMake(0, 40);
+    
+    [_rectangle addSubview:money1];
+    [self.view addSubview:money2];
+    [self.view addSubview:money3];
+    
 }
 
 - (void)didReceiveMemoryWarning{
