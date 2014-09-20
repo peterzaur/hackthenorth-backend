@@ -10,8 +10,16 @@
 
 @interface SNViewController : UIViewController
 
-//IBOutlet UIView *rect;
 @property (weak, nonatomic) IBOutlet UISlider *DenominationSlider;
 @property (weak, nonatomic) IBOutlet UILabel *DenominationAmount;
+
+@property (weak, nonatomic) IBOutlet UIView *rect;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+@property (weak, nonatomic) IBOutlet UIButton *swipeButton;
+
+- (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender;
+
+- (void)swipeOccured;
 
 @end

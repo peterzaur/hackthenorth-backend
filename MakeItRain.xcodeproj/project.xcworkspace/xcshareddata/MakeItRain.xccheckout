@@ -10,29 +10,29 @@
 	<string>MakeItRain</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0245F287-FC80-4887-AE4F-4D62306AD269</key>
+		<key>6AB5027F9A1E05BA38A10B7AE7DBD0521E0D60DB</key>
 		<string>ssh://github.com/each3ric/hackthenorth.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MakeItRain/MakeItRain.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0245F287-FC80-4887-AE4F-4D62306AD269</key>
+		<key>6AB5027F9A1E05BA38A10B7AE7DBD0521E0D60DB</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/each3ric/hackthenorth.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0245F287-FC80-4887-AE4F-4D62306AD269</string>
+	<string>6AB5027F9A1E05BA38A10B7AE7DBD0521E0D60DB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0245F287-FC80-4887-AE4F-4D62306AD269</string>
+			<string>6AB5027F9A1E05BA38A10B7AE7DBD0521E0D60DB</string>
 			<key>IDESourceControlWCCName</key>
 			<string>hackthenorth</string>
 		</dict>
