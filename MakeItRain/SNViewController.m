@@ -18,6 +18,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.totalLabel.text = @"0";
+    
+    [self.swipeButton setTitle:@"Swipe" forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -29,6 +33,15 @@
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch =[touches anyObject];
     CGPoint currentPoint =[touch locationInView:self.view];//point of touch
+}
+- (IBAction)sendSwipeAction:(id)sender {
+    
+    int increment = 1;
+    int current_swipes = self.totalLabel.text.intValue;
+    NSLog(@"%d", current_swipes);
+    self.totalLabel.text = [NSString stringWithFormat:@"%d", current_swipes + increment];
+    
+    // Do more stuff
 }
 
 @end

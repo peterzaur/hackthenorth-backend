@@ -10,6 +10,9 @@
 
 @interface SNViewController : UIViewController
 
-IBOutlet UIView *rect;
+@property (weak, nonatomic) IBOutlet UIView *rect;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+@property (weak, nonatomic) IBOutlet UIButton *swipeButton;
 
 @end
