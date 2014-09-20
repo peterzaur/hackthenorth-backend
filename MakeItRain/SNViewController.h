@@ -25,7 +25,8 @@
 @property double denomination_value;
 @property NSMutableArray *swipe_array;
 
-@property (weak, nonatomic) IBOutlet UILabel *denominationFlashLabel;
+@property (weak, nonatomic) IBOutlet UILabel *incrementLabel;
+
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender;
 

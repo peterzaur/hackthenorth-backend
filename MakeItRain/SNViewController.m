@@ -79,16 +79,31 @@ static CGPoint initialPos;
     UIColor *originalColor = self.view.backgroundColor;
     self.denominationFlashLabel.text = [NSString stringWithFormat:@"$%.2f", denomination];
 //    self.denominationFlashLabel.alpha = 1;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.view.backgroundColor = blueColor;
+//    [UIView animateWithDuration:0.3 animations:^{
+//        self.view.backgroundColor = blueColor;
+//    } completion:^(BOOL finished) {
+//        //self.denominationFlashLabel.alpha = 0;
+//        [UIView animateWithDuration:0.3 animations:^{
+//            self.view.backgroundColor = originalColor;
+//            
+//        }];
+    _incrementLabel.text = [NSString stringWithFormat:@"+$%.2f", denomination];
+    
+    [_incrementLabel setAlpha:0.0f];
+        [UIView animateWithDuration:0.4f animations:^{
+        [_incrementLabel setAlpha:1.0f];
     } completion:^(BOOL finished) {
-        //self.denominationFlashLabel.alpha = 0;
-        [UIView animateWithDuration:0.3 animations:^{
-            self.view.backgroundColor = originalColor;
-            
-        }];
+        [UIView animateWithDuration:0.6f animations:^{
+        [_incrementLabel setAlpha:0.0f];
+    } completion:nil];
     }];
     
+    [UIView animateWithDuration:0.4 animations:^{
+        self.view.backgroundColor = greenColor;
+    } completion:NULL];
+    [UIView animateWithDuration:0.4 animations:^{
+        self.view.backgroundColor = blueColor;
+    } completion:NULL];
 }
 
 
