@@ -17,6 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.DenominationSlider.minimumValue = 0.25;
+    self.DenominationSlider.maximumValue = 5.00;
+    self.DenominationSlider.value = 1.00;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -29,6 +32,13 @@
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch =[touches anyObject];
     CGPoint currentPoint =[touch locationInView:self.view];//point of touch
+}
+
+- (IBAction)denominationSliderChanged:(id)sender {
+    
+    double roundedValue = round(self.DenominationSlider.value * 4) / 4.0;
+    
+    self.DenominationAmount.text = [NSString stringWithFormat:@"$%.2f", roundedValue];
 }
 
 @end

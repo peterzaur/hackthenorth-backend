@@ -10,6 +10,8 @@
 
 @interface SNViewController : UIViewController
 
-IBOutlet UIView *rect;
+//IBOutlet UIView *rect;
+@property (weak, nonatomic) IBOutlet UISlider *DenominationSlider;
+@property (weak, nonatomic) IBOutlet UILabel *DenominationAmount;
 
 @end
