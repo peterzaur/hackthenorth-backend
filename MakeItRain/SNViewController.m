@@ -43,6 +43,10 @@
 }
 - (IBAction)sendSwipeAction:(id)sender {
     
+    self.swipeOccured;
+}
+- (void)swipeOccured {
+    
     int increment = 1;
     int current_swipes = self.totalLabel.text.intValue;
     NSLog(@"%d", current_swipes);
@@ -50,4 +54,5 @@
     
     // Do more stuff
 }
+
 @end

@@ -18,4 +18,6 @@
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender;
 
+- (void)swipeOccured;
+
 @end

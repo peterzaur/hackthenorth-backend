@@ -22,7 +22,6 @@
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1il-FN-8bt">
                                 <rect key="frame" x="92" y="453" width="136" height="115"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -47,9 +46,9 @@
                         <gestureRecognizers/>
                     </view>
                     <connections>
+                        <outlet property="rectangle" destination="1il-FN-8bt" id="e1R-nH-kTf"/>
                         <outlet property="swipeButton" destination="xc8-1c-4x4" id="COt-mv-2X4"/>
                         <outlet property="totalLabel" destination="ntN-wV-lnz" id="a1v-vg-NzP"/>
-                        <outlet property="rectangle" destination="1il-FN-8bt" id="e1R-nH-kTf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
