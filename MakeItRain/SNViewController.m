@@ -24,6 +24,7 @@ static UIColor *greenColour;
     [UIView animateWithDuration:0.5f animations:^{
         _rectangle.center = CGPointMake(currentPos.x, currentPos.y - 500);
     }];
+    [self swipeOccurred];
 }
 
 - (void)viewDidLoad{
@@ -62,11 +63,6 @@ static UIColor *greenColour;
     [UIView animateWithDuration:0.3 animations:^{
         self.view.backgroundColor = [UIColor whiteColor];
     } completion:NULL];
-}
-
-- (IBAction)sendSwipeAction:(id)sender {
-    NSLog(@"Swipe Button Clicked");
-    [self swipeOccurred];
 }
 
 - (void)swipeOccurred {
