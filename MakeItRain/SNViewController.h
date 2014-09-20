@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import <PocketSVG/PocketSVG.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
 @interface SNViewController : UIViewController <MFMailComposeViewControllerDelegate>

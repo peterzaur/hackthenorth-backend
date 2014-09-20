@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MakeItRain/SNViewController.h"
-            timestampString = "432940252.386214"
+            timestampString = "432941081.63904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12">
+            startingLineNumber = "11"
+            endingLineNumber = "11">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
