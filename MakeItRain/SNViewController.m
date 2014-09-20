@@ -57,13 +57,14 @@
 - (void)swipeOccured {
     
     double increment = self.denomination_value;
+    NSLog([NSString stringWithFormat:@"Swipe Value: $%.2f", increment]);
+    
     [self.swipe_array addObject:[NSNumber numberWithDouble:increment]];
     self.nslog_swipe_array;
     self.update_swipe_total;
     
     double current_swipes = self.swipe_total;
     
-    NSLog([NSString stringWithFormat:@"$%.2f", current_swipes]);
     self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", current_swipes];
     
     self.swipe_total = current_swipes;
@@ -74,12 +75,49 @@
 - (IBAction)sendButton:(id)sender {
     
     NSLog(@"Send Button Clicked");
+    
+    self.send_squarecash_email;
+}
+
+- (void) send_squarecash_email {
+    
+    NSString *email_subject = @"subject";
+    NSString *email_body = @"body but nothign else?";
+    NSArray *email_recipients = [NSArray arrayWithObject:@"someone@there.com"];
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        NSLog(@"You can send");
+        
+        MFMailComposeViewController* mailController = [[MFMailComposeViewController alloc] init];
+        mailController.mailComposeDelegate = self;
+        [mailController setSubject:email_subject];
+        [mailController setMessageBody:email_body isHTML:NO];
+        [mailController setToRecipients:email_recipients];
+        [self presentViewController:mailController animated:YES completion:NULL];
+        //[mailController release];
+    }
+    else {
+        NSLog(@"Sorry, you need to setup mail first!");
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*) controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent) {
+        NSLog(@"It's away!");
+    }
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)undoButton:(id)sender {
     NSLog(@"Undo Button Clicked");
     
+    [self.swipe_array removeLastObject];
+    self.update_swipe_total;
     
+    self.nslog_swipe_array;
 }
 
 
@@ -94,7 +132,7 @@
 }
 
 - (void)nslog_swipe_array {
-    NSString *swipe_array_contents = @"";
+    NSString *swipe_array_contents = @"Swipe Array: ";
     for (NSNumber *i in self.swipe_array) {
         swipe_array_contents = [swipe_array_contents stringByAppendingFormat:@"$%.2f, ", i.doubleValue];
     }
@@ -106,7 +144,11 @@
     for (NSNumber *i in self.swipe_array) {
         swipe_sum += i.doubleValue;
     }
+    NSLog([NSString stringWithFormat:@"New Swipe Total: $%.2f", swipe_sum]);
+    
     self.swipe_total = swipe_sum;
+    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", self.swipe_total];
+    
     return self.swipe_total;
 }
 

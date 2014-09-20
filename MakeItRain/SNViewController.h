@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SNViewController : UIViewController
+#import <MessageUI/MFMailComposeViewController.h>
+
+@interface SNViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UISlider *DenominationSlider;
 @property (weak, nonatomic) IBOutlet UILabel *DenominationAmount;
@@ -23,12 +25,11 @@
 @property double denomination_value;
 @property NSMutableArray *swipe_array;
 
-
-
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender;
 
 - (void)swipeOccured;
 - (void)nslog_swipe_array;
 - (double)update_swipe_total;
+- (void)send_squarecash_email;
 
 @end
