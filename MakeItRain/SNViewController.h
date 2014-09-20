@@ -25,11 +25,13 @@
 @property double denomination_value;
 @property NSMutableArray *swipe_array;
 
+@property (weak, nonatomic) IBOutlet UILabel *denominationFlashLabel;
+
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender;
 
-- (void)swipeOccured;
-- (void)nslog_swipe_array;
-- (double)update_swipe_total;
+- (void)swipeOccurred;
+- (void)flashDenominationAmount:(double)denomination;
+- (void)nslogSwipeArray;
 - (void)send_squarecash_email;
-
+- (double)updateSwipeTotal;
 @end
