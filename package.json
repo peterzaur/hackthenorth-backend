@@ -1,0 +1,15 @@
+{
+  "name": "flickpay",
+  "version": "0.0.0",
+  "description": "Hack the North 2014 - Making digital payments more fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies" : {
+  	"jade" : "1.6.x",
+  	"less" : "1.7.x"
+  }
+}
