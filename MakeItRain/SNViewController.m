@@ -12,9 +12,12 @@
 
 @property IBOutlet UIView *rectangle;
 
+
 @end
 
 @implementation SNViewController
+
+static UIColor *greenColour;
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender{
     CGPoint currentPos = _rectangle.center;
@@ -30,11 +33,15 @@
     self.DenominationSlider.minimumValue = 0.25;
     self.DenominationSlider.maximumValue = 5.00;
     self.DenominationSlider.value = 1.00;
+    [self.swipeButton setTitle:@"Swipe" forState:UIControlStateNormal];
+    
     self.denomination_value = self.DenominationSlider.value;
     
     self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", 0.0];
     self.swipe_total = 0;
     self.swipe_array = [[NSMutableArray alloc] init];
+    
+    greenColour = [UIColor colorWithRed:(123 / 255.0) green:(191 / 255.0) blue:(106 / 255.0) alpha: 1];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -47,44 +54,84 @@
     CGPoint currentPoint =[touch locationInView:self.view];//point of touch
 }
 
-- (IBAction)sendSwipeAction:(id)sender {
-    
-    NSLog(@"Swipe Button Clicked");
-    
-    self.swipeOccured;
+- (void)flashDenominationAmount:(double)denomination {
+    self.denominationFlashLabel.text = [NSString stringWithFormat:@"$%.2f", denomination];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.backgroundColor = greenColour;
+    } completion:NULL];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.backgroundColor = [UIColor whiteColor];
+    } completion:NULL];
 }
 
-- (void)swipeOccured {
-    
+- (IBAction)sendSwipeAction:(id)sender {
+    NSLog(@"Swipe Button Clicked");
+    [self swipeOccurred];
+}
+
+- (void)swipeOccurred {
     double increment = self.denomination_value;
+    NSLog([NSString stringWithFormat:@"Swipe Value: $%.2f", increment]);
+    
     [self.swipe_array addObject:[NSNumber numberWithDouble:increment]];
-    self.nslog_swipe_array;
-    self.update_swipe_total;
+    [self updateSwipeTotal];
     
     double current_swipes = self.swipe_total;
     
-    NSLog([NSString stringWithFormat:@"$%.2f", current_swipes]);
     self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", current_swipes];
     
     self.swipe_total = current_swipes;
-    
-    // Do more stuff
+    [self flashDenominationAmount:(increment)];
 }
 
 - (IBAction)sendButton:(id)sender {
-    
     NSLog(@"Send Button Clicked");
+    
+    self.send_squarecash_email;
+}
+
+- (void) send_squarecash_email {
+    
+    NSString *email_subject = @"subject";
+    NSString *email_body = @"body but nothign else?";
+    NSArray *email_recipients = [NSArray arrayWithObject:@"someone@there.com"];
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        NSLog(@"You can send");
+        
+        MFMailComposeViewController* mailController = [[MFMailComposeViewController alloc] init];
+        mailController.mailComposeDelegate = self;
+        [mailController setSubject:email_subject];
+        [mailController setMessageBody:email_body isHTML:NO];
+        [mailController setToRecipients:email_recipients];
+        [self presentViewController:mailController animated:YES completion:NULL];
+        //[mailController release];
+    }
+    else {
+        NSLog(@"Sorry, you need to setup mail first!");
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*) controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent) {
+        NSLog(@"It's away!");
+    }
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)undoButton:(id)sender {
     NSLog(@"Undo Button Clicked");
     
+    [self.swipe_array removeLastObject];
+    self.updateSwipeTotal;
     
+    self.nslogSwipeArray;
 }
 
-
 - (IBAction)denominationSliderChanged:(id)sender {
-    
     double roundedValue = round(self.DenominationSlider.value * 4) / 4.0;
     self.DenominationSlider.value = roundedValue;
     
@@ -93,20 +140,24 @@
     self.denomination_value = roundedValue;
 }
 
-- (void)nslog_swipe_array {
-    NSString *swipe_array_contents = @"";
+- (void)nslogSwipeArray {
+    NSString *swipe_array_contents = @"Swipe Array: ";
     for (NSNumber *i in self.swipe_array) {
         swipe_array_contents = [swipe_array_contents stringByAppendingFormat:@"$%.2f, ", i.doubleValue];
     }
     NSLog(swipe_array_contents);
 }
 
-- (double)update_swipe_total{
+- (double)updateSwipeTotal{
     double swipe_sum = 0.0;
     for (NSNumber *i in self.swipe_array) {
         swipe_sum += i.doubleValue;
     }
+    NSLog([NSString stringWithFormat:@"New Swipe Total: $%.2f", swipe_sum]);
+    
     self.swipe_total = swipe_sum;
+    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", self.swipe_total];
+    
     return self.swipe_total;
 }
 
