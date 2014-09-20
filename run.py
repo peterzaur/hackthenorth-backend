@@ -1,13 +1,11 @@
 import flask
 import flask.ext.sqlalchemy
 import flask.ext.restless
-from flask_mail import Mail
-from flask_mail import Message
+from werkzeug.contrib.fixers import ProxyFix
 
 app = flask.Flask(__name__)
 app.config.from_object('config')
 db = flask.ext.sqlalchemy.SQLAlchemy(app)
-mail = Mail(app)
 
 # Create Flask-SQLAlchemy models
 class User(db.Model):
@@ -22,14 +20,7 @@ db.create_all()
 manager = flask.ext.restless.APIManager(app, flask_sqlalchemy_db=db)
 manager.create_api(User, methods=['GET', 'POST', 'DELETE'])
 
-@app.route("/", methods=['GET'])
-def sendemail():
-   return send()
-
-def send(): 
-   msg = Message("Hello", sender="nolan@rocks.com", recipients=["liu.peter.j@gmail.com"])
-   mail.send(msg)
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 # Start flask
-port = int(os.environ.get("PORT", 5000))
-app.run(host='0.0.0.0', port=port)
+app.run()
