@@ -172,3 +172,5 @@ xcuserdata
 # ...none. Everything is now explained.
 
 env/
+app.db
+*.pyc
