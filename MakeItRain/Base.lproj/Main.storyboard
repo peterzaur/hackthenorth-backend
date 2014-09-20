@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cyo-DG-xQ4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cyo-DG-xQ4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -32,12 +32,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mu-Tg-i91">
-                                <rect key="frame" x="20" y="165" width="280" height="155"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1il-FN-8bt">
                                 <rect key="frame" x="93" y="345" width="136" height="115"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +41,7 @@
                                 </connections>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="X4M-hs-fhH">
-                                <rect key="frame" x="20" y="485" width="282" height="31"/>
+                                <rect key="frame" x="20" y="485" width="282" height="34"/>
                                 <color key="tintColor" red="0.4823529411764706" green="0.74901960784313726" blue="0.41568627450980389" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="denominationSliderChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="mRl-ZA-2N5"/>
@@ -59,8 +53,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1f-BR-RS6">
-                                <rect key="frame" x="115" y="92" width="91" height="32"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <rect key="frame" x="30" y="90" width="261" height="85"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1h-ih-sUW">
+                                <rect key="frame" x="134" y="162" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.4682774697580645" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -95,7 +96,7 @@
                     <connections>
                         <outlet property="DenominationAmount" destination="m41-RV-jh4" id="wmU-qB-FiW"/>
                         <outlet property="DenominationSlider" destination="X4M-hs-fhH" id="6iI-sa-o6M"/>
-                        <outlet property="denominationFlashLabel" destination="4Mu-Tg-i91" id="2nW-e9-Yos"/>
+                        <outlet property="incrementLabel" destination="j1h-ih-sUW" id="oAa-gB-x6K"/>
                         <outlet property="rectangle" destination="1il-FN-8bt" id="e1R-nH-kTf"/>
                         <outlet property="sendButton" destination="YYI-A7-cYA" id="6qu-3L-GQN"/>
                         <outlet property="totalLabel" destination="V1f-BR-RS6" id="2XJ-Jn-lBq"/>

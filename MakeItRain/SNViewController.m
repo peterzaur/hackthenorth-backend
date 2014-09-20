@@ -77,11 +77,21 @@ static CGPoint initialPos = {160, 346};
 }
 
 - (void)flashDenominationAmount:(double)denomination {
-    self.denominationFlashLabel.text = [NSString stringWithFormat:@"$%.2f", denomination];
-    [UIView animateWithDuration:0.3 animations:^{
+    _incrementLabel.text = [NSString stringWithFormat:@"+$%.2f", denomination];
+    
+    [_incrementLabel setAlpha:0.0f];
+        [UIView animateWithDuration:0.4f animations:^{
+        [_incrementLabel setAlpha:1.0f];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.6f animations:^{
+        [_incrementLabel setAlpha:0.0f];
+    } completion:nil];
+    }];
+    
+    [UIView animateWithDuration:0.4 animations:^{
         self.view.backgroundColor = greenColour;
     } completion:NULL];
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.4 animations:^{
         self.view.backgroundColor = [UIColor whiteColor];
     } completion:NULL];
 }
