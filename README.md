@@ -10,7 +10,8 @@ Using virtualenv to run flask api server
 
 # Trying it out
 run `python run.py`
-In a python console...
+
+Then, in a python console...
 
     >>> import json  # import simplejson as json, if on Python 2.5
     >>> import requests  # python-requests is installable from PyPI...
