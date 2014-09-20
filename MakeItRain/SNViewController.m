@@ -25,13 +25,15 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    
     self.DenominationSlider.minimumValue = 0.25;
     self.DenominationSlider.maximumValue = 5.00;
     self.DenominationSlider.value = 1.00;
-	// Do any additional setup after loading the view, typically from a nib.
+    self.denomination_value = self.DenominationSlider.value;
     
-    self.totalLabel.text = @"0";
-    self.swipe_count = 0;
+    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", 0];
+    self.swipe_total = 0;
 }
 
 - (void)didReceiveMemoryWarning{
@@ -53,13 +55,13 @@
 
 - (void)swipeOccured {
     
-    int increment = 1;
-    int current_swipes = self.swipe_count + increment;
+    double increment = self.denomination_value;
+    double current_swipes = self.swipe_total + increment;
     
-    NSLog(@"%d", current_swipes);
-    self.totalLabel.text = [NSString stringWithFormat:@"%d", current_swipes];
+    NSLog([NSString stringWithFormat:@"$%.2f", current_swipes]);
+    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", current_swipes];
     
-    self.swipe_count = current_swipes;
+    self.swipe_total = current_swipes;
     
     // Do more stuff
 }
@@ -80,6 +82,8 @@
     self.DenominationSlider.value = roundedValue;
     
     self.DenominationAmount.text = [NSString stringWithFormat:@"$%.2f", roundedValue];
+    
+    self.denomination_value = roundedValue;
 }
 
 @end
