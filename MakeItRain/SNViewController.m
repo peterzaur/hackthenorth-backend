@@ -35,12 +35,13 @@ static UIColor *greenColour;
     self.DenominationSlider.value = 1.00;
     [self.swipeButton setTitle:@"Swipe" forState:UIControlStateNormal];
     
-    greenColour = [UIColor colorWithRed:(123 / 255.0) green:(191 / 255.0) blue:(106 / 255.0) alpha: 1];
     self.denomination_value = self.DenominationSlider.value;
     
     self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", 0.0];
     self.swipe_total = 0;
     self.swipe_array = [[NSMutableArray alloc] init];
+    
+    greenColour = [UIColor colorWithRed:(123 / 255.0) green:(191 / 255.0) blue:(106 / 255.0) alpha: 1];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -65,14 +66,13 @@ static UIColor *greenColour;
 
 - (IBAction)sendSwipeAction:(id)sender {
     NSLog(@"Swipe Button Clicked");
-    self.swipeOccured;
+    [self swipeOccurred];
 }
 
-- (void)swipeOccured {
+- (void)swipeOccurred {
     double increment = self.denomination_value;
     [self.swipe_array addObject:[NSNumber numberWithDouble:increment]];
-    self.nslog_swipe_array;
-    self.updateSwipeTotal;
+    [self updateSwipeTotal];
     
     double current_swipes = self.swipe_total;
     

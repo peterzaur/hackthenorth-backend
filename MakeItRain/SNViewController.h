@@ -29,7 +29,7 @@
 
 - (IBAction)swipeDetected:(UISwipeGestureRecognizer *)sender;
 
-- (void)swipeOccured;
+- (void)swipeOccurred;
 - (void)flashDenominationAmount:(double)denomination;
 - (void)nslog_swipe_array;
 - (double)updateSwipeTotal;
