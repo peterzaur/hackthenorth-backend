@@ -77,7 +77,7 @@ static CGPoint initialPos;
 
 - (void)flashDenominationAmount:(double)denomination {
     UIColor *originalColor = self.view.backgroundColor;
-    self.denominationFlashLabel.text = [NSString stringWithFormat:@"$%.2f", denomination];
+    //self.denominationFlashLabel.text = [NSString stringWithFormat:@"$%.2f", denomination];
 //    self.denominationFlashLabel.alpha = 1;
 //    [UIView animateWithDuration:0.3 animations:^{
 //        self.view.backgroundColor = blueColor;
