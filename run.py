@@ -18,8 +18,8 @@ db.create_all()
 manager = flask.ext.restless.APIManager(app, flask_sqlalchemy_db=db)
 manager.create_api(Users, methods=['GET', 'POST', 'PUT'])
 
-@app.route('/new', methods=['POST'])
-def new():
+@app.route('/getemail', methods=['POST'])
+def getEmail():
     email = request.form['email']
     print(email)
     print("reached here")
