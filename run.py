@@ -1,6 +1,7 @@
 import flask
 import flask.ext.sqlalchemy
 import flask.ext.restless
+import json
 
 app = flask.Flask(__name__)
 app.config.from_object('config')
