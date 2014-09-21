@@ -26,6 +26,9 @@ def getLoginStatus(user):
     #s = text("SELECT password FROM users WHERE id = " + email_address)
     #print(s)
     bar = db.session.query(Users).get(user)
+    ar = db.engine.execute("select * from users)
+    for row in result:
+        print "password: ", row['password']
     #print(email) 
     return "User: derp"
     # status = false
