@@ -18,6 +18,11 @@ db.create_all()
 manager = flask.ext.restless.APIManager(app, flask_sqlalchemy_db=db)
 manager.create_api(Users, methods=['GET', 'POST', 'PUT'])
 
+@app.route('/new/<email>', methods=['POST'])
+def new(email):
+    user = db.session.query(Users).get(email)
+    return "User: %s" % user
+
 # Start flask
 if __name__ == '__main__':
     app.run(debug = True)
