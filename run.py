@@ -21,7 +21,7 @@ manager.create_api(Users, methods=['GET', 'POST', 'PUT'])
 @app.route('/getemail', methods=['POST'])
 def getEmail():
     print(flask.request.method)
-    email = flask.request.form['email']
+    email = flask.request.data['email']
     print(email)
     print("reached here")
     return email
