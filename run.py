@@ -17,7 +17,7 @@ db.create_all()
 
 # Init Flask-Restless API manager, create endpoint (at <host>/api/<tablename>)
 manager = flask.ext.restless.APIManager(app, flask_sqlalchemy_db=db)
-manager.create_api(User, methods=['GET', 'POST', 'DELETE'])
+manager.create_api(Users, methods=['GET', 'POST', 'DELETE'])
 
 # Start flask
 app.run()
