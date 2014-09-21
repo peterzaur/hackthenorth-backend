@@ -21,6 +21,7 @@ manager.create_api(Users, methods=['GET', 'POST', 'PUT'])
 @app.route('/new', methods=['POST'])
 def new():
     print("reached here")
+    print(request.method)
     if request.method == 'POST':
         jsondata = request.form['jsondata']
         data = json.loads(jsondata)
