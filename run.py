@@ -20,7 +20,7 @@ manager.create_api(Users, methods=['GET', 'POST', 'PUT'])
 
 @app.route('/getemail', methods=['POST'])
 def getEmail():
-    email = request.form['email']
+    email = flask.request.form['email']
     print(email)
     print("reached here")
     return email
