@@ -7,7 +7,7 @@ app.config.from_object('config')
 db = flask.ext.sqlalchemy.SQLAlchemy(app)
 
 # Create Flask-SQLAlchemy models
-class User(db.Model):
+class Users(db.Model):
    id = db.Column(db.Integer, primary_key=True)
    username = db.Column(db.String)
    message = db.Column(db.String)
