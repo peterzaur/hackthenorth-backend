@@ -18,12 +18,14 @@ db.create_all()
 manager = flask.ext.restless.APIManager(app, flask_sqlalchemy_db=db)
 manager.create_api(Users, methods=['GET', 'POST', 'PUT'])
 
-@app.route('/getloginstatus', methods=['POST'])
-def getLoginStatus():
-    status = false
-    print(status)
-    print(flask.request.json)
-    return status
+@app.route('/getloginstatus/<user>', methods=['POST'])
+def getLoginStatus(user):
+    user = db.session.query(Users).get(user)
+    return "User: %s" % user
+    # status = false
+    # print(status)
+    # print(flask.request.json)
+    # return status
 
 # Start flask
 if __name__ == '__main__':
