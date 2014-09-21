@@ -23,7 +23,8 @@ manager.create_api(Users, methods=['GET', 'POST', 'PUT'])
 def getLoginStatus(user):
     data = flask.request.json
     user = data['email']
-    email = db.session.query(Users).select(password).where(Users.id == user)
+    select_stmt = select([password]).where(Users.id == user)
+    email = db.session.query(Users).select_entity_from(select_stmt)
     print(email) 
     return "User: derp"
     # status = false
