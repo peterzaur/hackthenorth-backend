@@ -21,7 +21,7 @@ manager.create_api(Users, methods=['GET', 'POST', 'PUT'])
 @app.route('/getloginstatus/<user>', methods=['POST'])
 def getLoginStatus(user):
     user = db.session.query(Users).get(user)
-    return "User: %s" % user
+    return "User: derp"
     # status = false
     # print(status)
     # print(flask.request.json)
