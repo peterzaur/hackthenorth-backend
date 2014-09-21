@@ -2,6 +2,19 @@ import flask
 import flask.ext.sqlalchemy
 import flask.ext.restless
 import json
+import os
+import psycopg2
+import urlparse
+
+urlparse.uses_netloc.append("postgres")
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
+conn = psycopg2.connect(
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
 
 app = flask.Flask(__name__)
 app.config.from_object('config')
@@ -26,15 +39,8 @@ def getLoginStatus(user):
     #s = text("SELECT password FROM users WHERE id = " + email_address)
     #print(s)
     bar = db.session.query(Users).get(user)
-    ar = db.engine.execute("select * from users)
-    for row in result:
-        print row['password']
     #print(email) 
     return "User: derp"
-    # status = false
-    # print(status)
-    # print(flask.request.json)
-    # return status
 
 # Start flask
 if __name__ == '__main__':
