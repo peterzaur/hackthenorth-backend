@@ -20,13 +20,10 @@ manager.create_api(Users, methods=['GET', 'POST', 'PUT'])
 
 @app.route('/new', methods=['POST'])
 def new():
+    email = request.form['email']
+    print(email)
     print("reached here")
-    print(request.method)
-    if request.method == 'POST':
-        jsondata = request.form['jsondata']
-        data = json.loads(jsondata)
-        print(data)
-    return "somethingsomething"
+    return email
 
 # Start flask
 if __name__ == '__main__':
